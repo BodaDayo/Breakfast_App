@@ -10,10 +10,6 @@
             name="viewModel"
             type="com.rgbstudios.breakfastapp.model.OrderViewModel" />
 
-        <variable
-            name="bakeryFragment"
-            type="com.rgbstudios.breakfastapp.BakeryFragment" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -99,7 +95,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="@{() -> bakeryFragment.goToNextScreen()}"
                     android:text="@string/next_button"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

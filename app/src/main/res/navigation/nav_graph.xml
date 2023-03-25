@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_bakeryFragment_to_poultryFragment"
             app:destination="@id/poultryFragment" />
+        <action
+            android:id="@+id/action_bakeryFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/foodChoiceFragment"
@@ -42,12 +45,19 @@
         <action
             android:id="@+id/action_dessertsFragment_to_pickupFragment"
             app:destination="@id/pickupFragment" />
+        <action
+            android:id="@+id/action_dessertsFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/summaryFragment"
         android:name="com.rgbstudios.breakfastapp.SummaryFragment"
         android:label="@string/fragment_summary"
-        tools:layout="@layout/fragment_summary" />
+        tools:layout="@layout/fragment_summary">
+        <action
+            android:id="@+id/action_summaryFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pickupFragment"
         android:name="com.rgbstudios.breakfastapp.PickupFragment"
@@ -56,6 +66,9 @@
         <action
             android:id="@+id/action_pickupFragment_to_summaryFragment"
             app:destination="@id/summaryFragment" />
+        <action
+            android:id="@+id/action_pickupFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/breweryFragment"
@@ -65,6 +78,9 @@
         <action
             android:id="@+id/action_breweryFragment_to_dessertsFragment"
             app:destination="@id/dessertsFragment" />
+        <action
+            android:id="@+id/action_breweryFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/poultryFragment"
@@ -74,5 +90,8 @@
         <action
             android:id="@+id/action_poultryFragment_to_breweryFragment"
             app:destination="@id/breweryFragment" />
+        <action
+            android:id="@+id/action_poultryFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
     </fragment>
 </navigation>

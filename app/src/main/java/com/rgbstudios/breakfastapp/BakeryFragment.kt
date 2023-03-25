@@ -31,7 +31,7 @@ class BakeryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val fragmentBinding = FragmentBakeryBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root
@@ -48,14 +48,15 @@ class BakeryFragment : Fragment() {
             val adapter = BakeryAdapter(bakeryOptions, sharedViewModel)
             bakeryRecyclerView.adapter = adapter
             bakeryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-            bakeryFragment = this@BakeryFragment
+            nextButton.setOnClickListener { goToNextScreen(adapter) }
+            cancelButton.setOnClickListener { cancelOrder() }
         }
     }
 
     /**
      * Navigate to the next screen to choose pickup date.
      */
-    fun goToNextScreen(adapter: BakeryAdapter) {
+    private fun goToNextScreen(adapter: BakeryAdapter) {
 
         updateCart(adapter)
         findNavController().navigate(R.id.action_bakeryFragment_to_poultryFragment)
@@ -83,5 +84,10 @@ class BakeryFragment : Fragment() {
             )
             sharedViewModel.addItemToCart(cartItem)
         }
+    }
+
+    private fun cancelOrder(){
+        sharedViewModel.resetOrder()
+        findNavController().navigate(R.id.action_bakeryFragment_to_foodChoiceFragment)
     }
 }

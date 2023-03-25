@@ -47,14 +47,15 @@ class PoultryFragment : Fragment() {
             val adapter = PoultryAdapter(poultryOptions, sharedViewModel)
             poultryRecyclerView.adapter = adapter
             poultryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-            poultryFragment = this@PoultryFragment
+            nextButton.setOnClickListener { goToNextScreen(adapter) }
+            cancelButton.setOnClickListener { cancelOrder() }
         }
     }
 
     /**
      * Navigate to the next screen to choose pickup date.
      */
-    fun goToNextScreen(adapter: PoultryAdapter) {
+    private fun goToNextScreen(adapter: PoultryAdapter) {
 
         updateCart(adapter)
         findNavController().navigate(R.id.action_poultryFragment_to_breweryFragment)
@@ -82,5 +83,10 @@ class PoultryFragment : Fragment() {
             )
             sharedViewModel.addItemToCart(cartItem)
         }
+    }
+
+    private fun cancelOrder(){
+        sharedViewModel.resetOrder()
+        findNavController().navigate(R.id.action_poultryFragment_to_foodChoiceFragment)
     }
 }

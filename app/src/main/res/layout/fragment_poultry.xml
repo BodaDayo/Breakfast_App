@@ -9,11 +9,6 @@
         <variable
             name="viewModel"
             type="com.rgbstudios.breakfastapp.model.OrderViewModel" />
-
-        <variable
-            name="poultryFragment"
-            type="com.rgbstudios.breakfastapp.PoultryFragment" />
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -100,14 +95,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="@{() -> poultryFragment.goToNextScreen()}"
                     android:text="@string/next_button"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />
             </LinearLayout>
         </LinearLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
