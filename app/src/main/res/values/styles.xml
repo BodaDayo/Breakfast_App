@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Button style -->
+    <style name="SecondaryButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/pink_500</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:paddingVertical">16dp</item>
+    </style>
+
+    <!-- Button2 style -->
+    <style name="cancelButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/white_700</item>
+        <item name="android:textColor">@color/pink_500</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:paddingVertical">16dp</item>
+        <item name="strokeColor">#1F000000</item>
+        <item name="strokeWidth">1sp</item>
+    </style>
+
+    <!-- Option Card style -->
+    <style name="option_card">
+        <item name="android:layout_marginVertical">8dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:radius">8dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">8sp</item>
+    </style>
+
+    <!-- Text Appearance Subtitle1 style -->
+    <style name="Subtitle1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginVertical">8sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/gray_500</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <!-- Text Appearance Subtitle1 style -->
+    <style name="item_option">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textColor">@color/gray_700</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- Text Appearance Subtitle1 style -->
+    <style name="item_price">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/pink_500</item>
+    </style>
+
+
+</resources>

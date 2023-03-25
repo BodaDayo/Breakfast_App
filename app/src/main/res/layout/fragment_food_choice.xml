@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".FoodChoiceFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="SpeakableTextPresentCheck">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/select_your_bread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="16sp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="@string/menu"
+                    android:textColor="@color/gray_500"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/menu_choices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/select_your_bread">
+
+                    <LinearLayout
+                        android:id="@+id/menu_option_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="8dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8sp">
+
+                        <ImageView
+                            android:id="@+id/menu_image_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:contentDescription="@string/cereals_desc"
+                            android:src="@drawable/bakery_items" />
+
+
+                        <TextView
+                            android:id="@+id/menu_text_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/menu_cereals"
+                            android:textColor="@color/gray_700"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_option_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="8dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8sp">
+
+                        <ImageView
+                            android:id="@+id/menu_image_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:contentDescription="@string/toasts_and_spreads_desc"
+                            android:src="@drawable/bakery_items" />
+
+
+                        <TextView
+                            android:id="@+id/menu_text_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/menu_toasts_and_spreads"
+                            android:textColor="@color/gray_700"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_option_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="8dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8sp">
+
+                        <ImageView
+                            android:id="@+id/menu_image_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:contentDescription="@string/eggs_and_breakfast_meats_desc"
+                            android:src="@drawable/eggs" />
+
+
+                        <TextView
+                            android:id="@+id/menu_text_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/menu_eggs_and_breakfast_meats"
+                            android:textColor="@color/gray_700"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_option_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="8dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8sp">
+
+                        <ImageView
+                            android:id="@+id/menu_image_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:contentDescription="@string/bakery_items_desc"
+                            android:src="@drawable/bakery_items" />
+
+
+                        <TextView
+                            android:id="@+id/menu_text_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/menu_bakery_items"
+                            android:textColor="@color/gray_700"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_option_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="8dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8sp">
+
+                        <ImageView
+                            android:id="@+id/menu_image_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:contentDescription="@string/fruits_and_yogurt_desc"
+                            android:src="@drawable/coffee" />
+
+
+                        <TextView
+                            android:id="@+id/menu_text_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/menu_fruits_and_yogurt"
+                            android:textColor="@color/gray_700"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/menu_option_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginVertical="8dp"
+                        android:background="@color/white"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:padding="8sp">
+
+                        <ImageView
+                            android:id="@+id/menu_image_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="100dp"
+                            android:contentDescription="@string/savory_dishes_desc"
+                            android:src="@drawable/sandwiches" />
+
+
+                        <TextView
+                            android:id="@+id/menu_text_6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/menu_savory_dishes"
+                            android:textColor="@color/gray_700"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

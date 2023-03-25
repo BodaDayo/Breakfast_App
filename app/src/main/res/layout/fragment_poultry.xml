@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PoultryFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.rgbstudios.breakfastapp.model.OrderViewModel" />
+
+        <variable
+            name="poultryFragment"
+            type="com.rgbstudios.breakfastapp.PoultryFragment" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16sp">
+
+        <!-- Subtitle TextView -->
+        <TextView
+            android:id="@+id/subtitle_textview"
+            style="@style/Subtitle1"
+            android:text="@string/Poultry_prompt"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/poultry_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subtitle_textview" />
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <TextView
+                android:id="@+id/poultry_cost_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="@{@string/poultry_cart_price(viewModel.poultryCost)}"
+                android:textColor="@color/pink_500"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Eggs: $0.00" />
+
+            <TextView
+                android:id="@+id/subtotal_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@{@string/subtotal_price(viewModel.subTotalCost)}"
+                android:textColor="@color/gray_700"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Subtotal: $0.00" />
+
+            <!-- Buttons -->
+            <LinearLayout
+                android:id="@+id/buttons_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <Button
+                    android:id="@+id/cancel_button"
+                    style="@style/cancelButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8sp"
+                    android:layout_weight="1"
+                    android:text="@string/cancel" />
+
+                <Button
+                    android:id="@+id/next_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="@{() -> poultryFragment.goToNextScreen()}"
+                    android:text="@string/next_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.rgbstudios.breakfastapp.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start">
+        <action
+            android:id="@+id/action_startFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bakeryFragment"
+        android:name="com.rgbstudios.breakfastapp.BakeryFragment"
+        android:label="@string/fragment_bakery"
+        tools:layout="@layout/fragment_bakery">
+        <action
+            android:id="@+id/action_bakeryFragment_to_poultryFragment"
+            app:destination="@id/poultryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodChoiceFragment"
+        android:name="com.rgbstudios.breakfastapp.FoodChoiceFragment"
+        android:label="@string/fragment_food_choice"
+        tools:layout="@layout/fragment_food_choice">
+        <action
+            android:id="@+id/action_foodChoiceFragment_to_bakeryFragment"
+            app:destination="@id/bakeryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dessertsFragment"
+        android:name="com.rgbstudios.breakfastapp.DessertsFragment"
+        android:label="@string/fragment_desserts"
+        tools:layout="@layout/fragment_desserts">
+        <action
+            android:id="@+id/action_dessertsFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summaryFragment"
+        android:name="com.rgbstudios.breakfastapp.SummaryFragment"
+        android:label="@string/fragment_summary"
+        tools:layout="@layout/fragment_summary" />
+    <fragment
+        android:id="@+id/pickupFragment"
+        android:name="com.rgbstudios.breakfastapp.PickupFragment"
+        android:label="@string/fragment_pickup"
+        tools:layout="@layout/fragment_pickup">
+        <action
+            android:id="@+id/action_pickupFragment_to_summaryFragment"
+            app:destination="@id/summaryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/breweryFragment"
+        android:name="com.rgbstudios.breakfastapp.BreweryFragment"
+        android:label="@string/fragment_brewery"
+        tools:layout="@layout/fragment_brewery">
+        <action
+            android:id="@+id/action_breweryFragment_to_dessertsFragment"
+            app:destination="@id/dessertsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/poultryFragment"
+        android:name="com.rgbstudios.breakfastapp.PoultryFragment"
+        android:label="@string/fragment_poultry"
+        tools:layout="@layout/fragment_poultry">
+        <action
+            android:id="@+id/action_poultryFragment_to_breweryFragment"
+            app:destination="@id/breweryFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".BreweryFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_between_elements">
+
+
+            <!-- TODO: Update blank fragment layout -->
+            <TextView
+                android:id="@+id/placeholder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/hello_blank_fragment"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+            <TextView
+                android:id="@+id/placeholder1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/hello_blank_fragment"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/placeholder"/>
+            <TextView
+                android:id="@+id/placeholder2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/hello_blank_fragment"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/placeholder1"/>
+
+            <Button
+                android:id="@+id/next_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/next"
+                app:layout_constraintTop_toBottomOf="@id/placeholder2"
+                tools:layout_editor_absoluteX="132dp"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
