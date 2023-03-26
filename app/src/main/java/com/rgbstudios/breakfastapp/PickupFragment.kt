@@ -8,6 +8,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.rgbstudios.breakfastapp.adapter.LocationDropdownAdapter
+import com.rgbstudios.breakfastapp.data.LocationData.ifeCentralAreas
+import com.rgbstudios.breakfastapp.data.LocationData.ifeEastAreas
+import com.rgbstudios.breakfastapp.data.LocationData.ifeNorthAreas
+import com.rgbstudios.breakfastapp.data.LocationData.lga
 import com.rgbstudios.breakfastapp.databinding.FragmentPickupBinding
 import com.rgbstudios.breakfastapp.model.OrderViewModel
 
@@ -26,7 +31,7 @@ class PickupFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val fragmentBinding = FragmentPickupBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root
@@ -36,7 +41,68 @@ class PickupFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            nextButton.setOnClickListener { goToNextScreen() }
+            lifecycleOwner = viewLifecycleOwner
+            viewModel = sharedViewModel
+
+
+            // Set up location dropdown options
+            val locationOptions = lga
+            val locationAdapter = LocationDropdownAdapter(requireContext(), locationOptions, sharedViewModel)
+            locationOptionsMenu.setAdapter(locationAdapter)
+
+            // Set up OnItemClickListener for locationOptionsMenu
+            locationOptionsMenu.setOnItemClickListener { parent, _, position, _ ->
+                val selectedLGA = parent.getItemAtPosition(position).toString()
+                sharedViewModel.setLocalGA(selectedLGA)
+            }
+
+
+            // Set up area dropdown options
+            sharedViewModel.localGA.observe(viewLifecycleOwner) { localGAValue ->
+                val areaOptions = when (localGAValue) {
+                    "Ife-North" -> ifeNorthAreas
+                    "Ife-Central" -> ifeCentralAreas
+                    else -> ifeEastAreas
+                }
+                val areaAdapter =
+                    LocationDropdownAdapter(requireContext(), areaOptions, sharedViewModel)
+                areaOptionsMenu.setAdapter(areaAdapter)
+            }
+
+            // Set up OnItemClickListener for areaOptionsMenu
+            areaOptionsMenu.setOnItemClickListener { parent, _, position, _ ->
+                val selectedArea = parent.getItemAtPosition(position).toString()
+                if (selectedArea == "Campus") sharedViewModel.setDeliveryPrice(0.0)
+            }
+
+            // Set the default selected option to "Ife-Central"
+            locationOptionsMenu.setText(lga[1], false)
+
+            nextButton.setOnClickListener {
+                val phoneNumberInput = phoneInputLayout.editText?.text.toString().trim()
+                val addressInput = addressInputLayout.editText?.text.toString().trim()
+
+                if (addressInput.isBlank()) {
+                    Toast.makeText(requireContext(), "Please type in your address", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                if (phoneNumberInput.isBlank()) {
+                    Toast.makeText(requireContext(), "Please input your Phone number", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+                // Check if the phone number input matches the regex pattern
+                val regexPattern = Regex("^\\d{11}\$")
+                if (!regexPattern.matches(phoneNumberInput)) {
+                    Toast.makeText(requireContext(), "Please type in the correct number format (e.g. 08012345678)", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+
+                sharedViewModel.setPhoneNumber(phoneNumberInput)
+                sharedViewModel.setFullAddress(addressInput)
+
+                goToNextScreen()
+            }
+            cancelButton.setOnClickListener { cancelOrder() }
         }
     }
 
@@ -54,5 +120,10 @@ class PickupFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    private fun cancelOrder(){
+        sharedViewModel.resetOrder()
+        findNavController().navigate(R.id.action_pickupFragment_to_foodChoiceFragment)
     }
 }

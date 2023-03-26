@@ -30,7 +30,7 @@ class PoultryFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val fragmentBinding = FragmentPoultryBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root

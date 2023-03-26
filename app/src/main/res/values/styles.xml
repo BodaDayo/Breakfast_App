@@ -58,5 +58,10 @@
         <item name="android:textColor">@color/pink_500</item>
     </style>
 
+    <!-- Divider style -->
+    <style name="Widget.breakfastApp.Divider" parent="">
+        <item name="android:background">?attr/dividerHorizontal</item>
+    </style>
+
 
 </resources>

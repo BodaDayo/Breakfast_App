@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".PickupFragment">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.rgbstudios.breakfastapp.model.OrderViewModel" />
+    </data>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -13,68 +19,146 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/edge_margin">
 
-            <RadioGroup
-                android:id="@+id/date_options"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
+            <TextView
+                android:id="@+id/subtitle_textview"
+                style="@style/Subtitle1"
+                android:text="Choose your Location"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/body_textview"
+                android:text="Delivery on OAU Campus is Free!"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle_textview"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"/>
 
-                <RadioButton
-                    android:id="@+id/option0"
-                    android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/location_menu"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/body_textview"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/margin_between_elements"
+            android:hint="LGA">
+
+            <AutoCompleteTextView
+                android:id="@+id/location_options_menu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/area_menu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/location_menu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/margin_between_elements"
+                android:hint="Area">
+
+                <AutoCompleteTextView
+                    android:id="@+id/area_options_menu"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="Thursday" />
+                    android:inputType="none"
+                    />
 
-                <RadioButton
-                    android:id="@+id/option1"
-                    android:layout_width="wrap_content"
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/address_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_elements"
+                android:hint="House Address"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/area_menu">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/address_edit_text"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="Friday" />
+                    android:inputType="textPostalAddress"/>
 
-                <RadioButton
-                    android:id="@+id/option2"
-                    android:layout_width="wrap_content"
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/address_input_layout"
+                android:layout_marginTop="@dimen/margin_between_elements">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_edit_text"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:text="Saturday" />
+                    android:inputType="phone"/>
 
-                <RadioButton
-                    android:id="@+id/option3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Sunday" />
-            </RadioGroup>
-
+            </com.google.android.material.textfield.TextInputLayout>
             <View
                 android:id="@+id/divider"
+                style="@style/Widget.breakfastApp.Divider"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginTop="@dimen/margin_between_elements"
-                android:layout_marginBottom="@dimen/margin_between_elements"
+                android:layout_marginTop="16sp"
+                android:layout_marginBottom="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/date_options" />
+                app:layout_constraintTop_toBottomOf="@id/phone_input_layout" />
 
             <TextView
                 android:id="@+id/subtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textSize="18sp"
+                android:text="@{@string/subtotal_price(viewModel.subTotalCost)}"
                 android:layout_marginTop="@dimen/margin_between_elements"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider"
                 tools:text="Subtotal $5.00" />
 
-            <Button
-                android:id="@+id/next_button"
-                android:layout_width="0dp"
+            <!-- Buttons -->
+            <LinearLayout
+                android:id="@+id/buttons_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_between_elements"
-                android:text="@string/next"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/subtotal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/subtotal" />
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <Button
+                    android:id="@+id/cancel_button"
+                    style="@style/cancelButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8sp"
+                    android:layout_weight="1"
+                    android:text="@string/cancel" />
+
+                <Button
+                    android:id="@+id/next_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/next_button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

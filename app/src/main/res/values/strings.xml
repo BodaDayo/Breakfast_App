@@ -8,6 +8,8 @@
     <string name="subtotal_price">Subtotal: %s</string>
     <string name="bakery_cart_price">Bakery: %s</string>
     <string name="poultry_cart_price">Eggs: %s</string>
+    <string name="brewery_cart_price">Drinks: %s</string>
+    <string name="desserts_cart_price">Sweets: %s</string>
 
     <string name="option_price">%s</string>
 
@@ -64,4 +66,6 @@
     <string name="fragment_pickup">Delivery Location</string>
     <string name="fragment_brewery">Beverages</string>
     <string name="fragment_poultry">Dairy Section</string>
+    <string name="brewery_prompt">What drink do you want to have with you breakfast</string>
+    <string name="desserts_prompt">Some sweets to go?</string>
 </resources>
