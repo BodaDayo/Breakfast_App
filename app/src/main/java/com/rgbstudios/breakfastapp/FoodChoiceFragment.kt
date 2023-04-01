@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.rgbstudios.breakfastapp.data.FoodStore.specialFoodOption
 import com.rgbstudios.breakfastapp.databinding.FragmentFoodChoiceBinding
 import com.rgbstudios.breakfastapp.model.OrderViewModel
 
@@ -35,18 +36,26 @@ class FoodChoiceFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
-            menuOption1.setOnClickListener { goToNextScreen() }
-            menuOption2.setOnClickListener { goToNextScreen() }
-            menuOption3.setOnClickListener { goToNextScreen() }
-            menuOption4.setOnClickListener { goToNextScreen() }
+            cerealMenuOption.setOnClickListener { goToNextScreen(1) }
+            bakeryMenuOption.setOnClickListener { goToNextScreen(2) }
+            omeletteMenuOption.setOnClickListener { goToNextScreen(3) }
+            biscuitMenuOption.setOnClickListener { goToNextScreen(4) }
+            juiceMenuOption.setOnClickListener { goToNextScreen(5) }
+            menuOptionSpecial.setOnClickListener { checkOutSpecialOrder() }
         }
     }
 
     /**
      * Navigate to the next screen to choose pickup date.
      */
-    fun goToNextScreen() {
-        findNavController().navigate(R.id.action_foodChoiceFragment_to_bakeryFragment)
+    private fun goToNextScreen(destination: Int) {
+        when (destination) {
+            1 -> findNavController().navigate(R.id.action_foodChoiceFragment_to_cerealFragment)
+            2 -> findNavController().navigate(R.id.action_foodChoiceFragment_to_bakeryFragment)
+            3 -> findNavController().navigate(R.id.action_foodChoiceFragment_to_poultryFragment)
+            4 -> findNavController().navigate(R.id.action_foodChoiceFragment_to_biscuitFragment)
+            5 -> findNavController().navigate(R.id.action_foodChoiceFragment_to_smoothieFragment)
+        }
     }
 
     /**
@@ -57,4 +66,11 @@ class FoodChoiceFragment : Fragment() {
         super.onDestroyView()
         binding = null
     }
+    private fun checkOutSpecialOrder(){
+        val order = sharedViewModel.prepareSpecialOrder(specialFoodOption)
+        sharedViewModel.setSpecialOrder(order)
+        findNavController().navigate(R.id.action_foodChoiceFragment_to_pickupFragment)
+    }
+
+
 }

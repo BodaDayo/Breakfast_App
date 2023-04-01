@@ -1,66 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Button style -->
-    <style name="SecondaryButton" parent="Widget.MaterialComponents.Button">
-        <item name="android:backgroundTint">@color/pink_500</item>
-        <item name="android:textColor">@color/white</item>
-        <item name="android:elevation">4dp</item>
-        <item name="android:fontFamily">@font/poppins_bold</item>
-        <item name="android:paddingVertical">16dp</item>
+
+    <!-- Layout styles -->
+    <!-- Option Card style -->
+
+
+    <!-- Text Appearance styles -->
+    <!-- Text Appearance Subtitle1 style -->
+    <style name="Subtitle1" parent="Theme.BreakfastApp">
+        <item name="android:layout_width">0sp</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginVertical">8sp</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
-    <!-- Button2 style -->
-    <style name="cancelButton" parent="Widget.MaterialComponents.Button">
-        <item name="android:backgroundTint">@color/white_700</item>
-        <item name="android:textColor">@color/pink_500</item>
+    <!-- Text Appearance menu_text style -->
+    <style name="menu_text" parent="Theme.BreakfastApp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:drawablePadding">8sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Text Appearance item_option style -->
+    <style name="item_option">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:drawablePadding">8sp</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- Text Appearance item_price style -->
+    <style name="item_price">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">?colorPrimary</item>
+    </style>
+
+    <!-- Text Appearance fragment_subtotal style -->
+    <style name="fragment_subtotal" parent="Theme.BreakfastApp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginEnd">8sp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">?colorPrimary</item>
+    </style>
+
+    <!-- Text Appearance subtotal style -->
+    <style name="subtotal" parent="Theme.BreakfastApp">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:layout_marginEnd">8sp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- Button styles -->
+    <!-- Proceed Button style -->
+    <style name="proceedButton" parent="Theme.BreakfastApp">
         <item name="android:fontFamily">@font/poppins_bold</item>
-        <item name="android:paddingVertical">16dp</item>
+        <item name="android:layout_width">0sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingVertical">16sp</item>
+    </style>
+
+    <!-- cancel Button style -->
+    <style name="cancelButton" parent="Theme.BreakfastApp">
+        <item name="android:backgroundTint">?colorSurface</item>
+        <item name="android:textColor">?colorPrimary</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:layout_width">0sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingVertical">16sp</item>
         <item name="strokeColor">#1F000000</item>
         <item name="strokeWidth">1sp</item>
     </style>
 
-    <!-- Option Card style -->
-    <style name="option_card">
-        <item name="android:layout_marginVertical">8dp</item>
-        <item name="android:background">@color/white</item>
-        <item name="android:radius">8dp</item>
-        <item name="android:gravity">center_vertical</item>
-        <item name="android:orientation">horizontal</item>
-        <item name="android:padding">8sp</item>
-    </style>
-
-    <!-- Text Appearance Subtitle1 style -->
-    <style name="Subtitle1">
+    <!-- counter Button style -->
+    <style name="counterButton" parent="Theme.BreakfastApp">
+        <item name="android:backgroundTint">?colorSecondaryContainer</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginVertical">8sp</item>
-        <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:textColor">@color/gray_500</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginVertical">4sp</item>
+        <item name="tint">?colorOnSecondaryContainer</item>
     </style>
 
-    <!-- Text Appearance Subtitle1 style -->
-    <style name="item_option">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">start</item>
-        <item name="android:textColor">@color/gray_700</item>
-        <item name="android:textSize">12sp</item>
-    </style>
 
-    <!-- Text Appearance Subtitle1 style -->
-    <style name="item_price">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:gravity">start</item>
-        <item name="android:textSize">12sp</item>
-        <item name="android:textColor">@color/pink_500</item>
-    </style>
 
     <!-- Divider style -->
     <style name="Widget.breakfastApp.Divider" parent="">
         <item name="android:background">?attr/dividerHorizontal</item>
+    </style>
+
+
+    <!-- Style for activities without an action bar. -->
+    <style name="AppTheme.NoActionBar" parent="Theme.BreakfastApp">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryVariant">@color/md_theme_light_primary</item>
+        <item name="android:statusBarColor">@color/md_theme_light_primary</item>
     </style>
 
 

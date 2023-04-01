@@ -16,17 +16,14 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:padding="16sp">
 
                 <TextView
                     android:id="@+id/select_your_bread"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/Subtitle1"
+                    android:layout_marginStart="8sp"
                     android:layout_marginVertical="16sp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="@string/menu"
-                    android:textColor="@color/gray_500"
-                    android:textSize="24sp"
+                    android:text="@string/menu_prompt"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,175 +33,155 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingVertical="16sp"
-                    app:layout_constraintTop_toBottomOf="@id/select_your_bread">
+                    app:layout_constraintTop_toBottomOf="@id/select_your_bread"
+                    tools:layout_editor_absoluteX="16dp">
 
-                    <LinearLayout
-                        android:id="@+id/menu_option_1"
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/cereal_menu_option"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginVertical="8dp"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="8sp">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8sp"
+                        card_view:cardCornerRadius="8sp"
+                        card_view:cardElevation="4sp">
 
-                        <ImageView
-                            android:id="@+id/menu_image_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/cereals_desc"
-                            android:src="@drawable/bakery_items" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="8sp">
 
+                            <TextView
+                                android:id="@+id/menu_text_1"
+                                style="@style/menu_text"
+                                android:text="@string/cereals_desc"
+                                card_view:drawableStartCompat="@drawable/crunchy_cereal" />
 
-                        <TextView
-                            android:id="@+id/menu_text_1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/menu_cereals"
-                            android:textColor="@color/gray_700"
-                            android:textSize="16sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/menu_option_2"
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/bakery_menu_option"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginVertical="8dp"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="8sp">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8sp"
+                        card_view:cardCornerRadius="8sp"
+                        card_view:cardElevation="4sp">
 
-                        <ImageView
-                            android:id="@+id/menu_image_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/toasts_and_spreads_desc"
-                            android:src="@drawable/bakery_items" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="8sp">
 
+                            <TextView
+                                android:id="@+id/menu_text_2"
+                                style="@style/menu_text"
+                                android:text="@string/bakery_bites"
+                                card_view:drawableStartCompat="@drawable/bakery" />
 
-                        <TextView
-                            android:id="@+id/menu_text_2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/menu_toasts_and_spreads"
-                            android:textColor="@color/gray_700"
-                            android:textSize="16sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/menu_option_3"
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/omelette_menu_option"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginVertical="8dp"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="8sp">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8sp"
+                        card_view:cardCornerRadius="8sp"
+                        card_view:cardElevation="4sp">
 
-                        <ImageView
-                            android:id="@+id/menu_image_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/eggs_and_breakfast_meats_desc"
-                            android:src="@drawable/eggs" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="8sp">
 
+                            <TextView
+                                android:id="@+id/menu_text_3"
+                                style="@style/menu_text"
+                                android:text="@string/omelette_obsessions"
+                                card_view:drawableStartCompat="@drawable/omelette" />
 
-                        <TextView
-                            android:id="@+id/menu_text_3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/menu_eggs_and_breakfast_meats"
-                            android:textColor="@color/gray_700"
-                            android:textSize="16sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/menu_option_4"
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/biscuit_menu_option"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginVertical="8dp"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="8sp">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8sp"
+                        card_view:cardCornerRadius="8sp"
+                        card_view:cardElevation="4sp">
 
-                        <ImageView
-                            android:id="@+id/menu_image_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/bakery_items_desc"
-                            android:src="@drawable/bakery_items" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="8sp">
 
+                            <TextView
+                                android:id="@+id/menu_text_4"
+                                style="@style/menu_text"
+                                android:text="@string/biscuit_banquet"
+                                card_view:drawableStartCompat="@drawable/biscuit_banq" />
 
-                        <TextView
-                            android:id="@+id/menu_text_4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/menu_bakery_items"
-                            android:textColor="@color/gray_700"
-                            android:textSize="16sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/menu_option_5"
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/juice_menu_option"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginVertical="8dp"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="8sp">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8sp"
+                        card_view:cardCornerRadius="8sp"
+                        card_view:cardElevation="4sp">
 
-                        <ImageView
-                            android:id="@+id/menu_image_5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/fruits_and_yogurt_desc"
-                            android:src="@drawable/coffee" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="8sp">
 
+                            <TextView
+                                android:id="@+id/menu_text_5"
+                                style="@style/menu_text"
+                                android:text="@string/juicy_smoothies_amp_shakes"
+                                card_view:drawableStartCompat="@drawable/protein_shakes" />
 
-                        <TextView
-                            android:id="@+id/menu_text_5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/menu_fruits_and_yogurt"
-                            android:textColor="@color/gray_700"
-                            android:textSize="16sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/menu_option_6"
+                    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/menu_option_special"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginVertical="8dp"
-                        android:background="@color/white"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="8sp">
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8sp"
+                        card_view:cardCornerRadius="8sp"
+                        card_view:cardElevation="4sp">
 
-                        <ImageView
-                            android:id="@+id/menu_image_6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="100dp"
-                            android:contentDescription="@string/savory_dishes_desc"
-                            android:src="@drawable/sandwiches" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="8sp">
 
+                            <TextView
+                                android:id="@+id/menu_text_option_special"
+                                style="@style/menu_text"
+                                android:text="@string/chef_s_special_sunrise_surprise"
+                                android:textColor="?colorPrimary"
+                                card_view:drawableStartCompat="@drawable/ic_baseline_lunch_dining_24"
+                                card_view:drawableTint="?colorPrimary" />
 
-                        <TextView
-                            android:id="@+id/menu_text_6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/menu_savory_dishes"
-                            android:textColor="@color/gray_700"
-                            android:textSize="16sp" />
+                        </LinearLayout>
 
-                    </LinearLayout>
+                    </androidx.cardview.widget.CardView>
 
                 </LinearLayout>
 

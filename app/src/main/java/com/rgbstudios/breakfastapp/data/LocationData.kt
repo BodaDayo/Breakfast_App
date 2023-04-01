@@ -1,8 +1,22 @@
 package com.rgbstudios.breakfastapp.data
 
 object LocationData {
-    val lga = listOf("Ife-North", "Ife-Central", "Ife-East")
+    val lga = listOf(
+        "Ife-North",
+        "Ife-Central",
+        "Ife-East"
+    )
     val ifeCentralAreas = listOf(
+        "OAU Campus",
+        "Mayfair",
+        "Asherifa",
+        "Lagere",
+        "Parakin",
+        "AP",
+        "Tentacle",
+        "Sabo",
+        "Ede road",
+        "Ibadan road",
         "Ilare",
         "Iremo",
         "Moore",
@@ -12,14 +26,14 @@ object LocationData {
         "Eleyele",
         "Ilode",
         "Okerewe",
-        "Campus",
         "Opa"
     )
     val ifeEastAreas = listOf(
+        "OAUTHC",
         "Okerewe",
         "Yekemi",
         "Ilode",
-        "Moore"
+        "Moore",
     )
     val ifeNorthAreas = listOf(
         "Edunabon",

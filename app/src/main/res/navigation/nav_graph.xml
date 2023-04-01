@@ -2,20 +2,36 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
-    app:startDestination="@id/startFragment">
+    app:startDestination="@id/foodChoiceFragment">
 
 
     <fragment
-        android:id="@+id/startFragment"
-        android:name="com.rgbstudios.breakfastapp.StartFragment"
-        android:label="fragment_start"
-        tools:layout="@layout/fragment_start">
+        android:id="@+id/foodChoiceFragment"
+        android:name="com.rgbstudios.breakfastapp.FoodChoiceFragment"
+        android:label="@string/fragment_food_choice"
+        tools:layout="@layout/fragment_food_choice">
         <action
-            android:id="@+id/action_startFragment_to_foodChoiceFragment"
-            app:destination="@id/foodChoiceFragment" />
+            android:id="@+id/action_foodChoiceFragment_to_bakeryFragment"
+            app:destination="@id/bakeryFragment" />
+        <action
+            android:id="@+id/action_foodChoiceFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
+        <action
+            android:id="@+id/action_foodChoiceFragment_to_cerealFragment"
+            app:destination="@id/cerealFragment" />
+        <action
+            android:id="@+id/action_foodChoiceFragment_to_poultryFragment"
+            app:destination="@id/poultryFragment" />
+        <action
+            android:id="@+id/action_foodChoiceFragment_to_breweryFragment"
+            app:destination="@id/breweryFragment" />
+        <action
+            android:id="@+id/action_foodChoiceFragment_to_smoothieFragment"
+            app:destination="@id/smoothieFragment" />
+        <action
+            android:id="@+id/action_foodChoiceFragment_to_biscuitFragment"
+            app:destination="@id/biscuitFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/bakeryFragment"
         android:name="com.rgbstudios.breakfastapp.BakeryFragment"
@@ -27,15 +43,9 @@
         <action
             android:id="@+id/action_bakeryFragment_to_foodChoiceFragment"
             app:destination="@id/foodChoiceFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/foodChoiceFragment"
-        android:name="com.rgbstudios.breakfastapp.FoodChoiceFragment"
-        android:label="@string/fragment_food_choice"
-        tools:layout="@layout/fragment_food_choice">
         <action
-            android:id="@+id/action_foodChoiceFragment_to_bakeryFragment"
-            app:destination="@id/bakeryFragment" />
+            android:id="@+id/action_bakeryFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
     </fragment>
     <fragment
         android:id="@+id/dessertsFragment"
@@ -56,7 +66,14 @@
         tools:layout="@layout/fragment_summary">
         <action
             android:id="@+id/action_summaryFragment_to_foodChoiceFragment"
-            app:destination="@id/foodChoiceFragment" />
+            app:destination="@id/foodChoiceFragment"
+            app:popUpTo="@id/foodChoiceFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_summaryFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment"
+            app:popUpTo="@id/pickupFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/pickupFragment"
@@ -81,6 +98,9 @@
         <action
             android:id="@+id/action_breweryFragment_to_foodChoiceFragment"
             app:destination="@id/foodChoiceFragment" />
+        <action
+            android:id="@+id/action_breweryFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
     </fragment>
     <fragment
         android:id="@+id/poultryFragment"
@@ -93,5 +113,65 @@
         <action
             android:id="@+id/action_poultryFragment_to_foodChoiceFragment"
             app:destination="@id/foodChoiceFragment" />
+        <action
+            android:id="@+id/action_poultryFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cerealFragment"
+        android:name="com.rgbstudios.breakfastapp.CerealFragment"
+        android:label="@string/fragment_cereal"
+        tools:layout="@layout/fragment_cereal" >
+        <action
+            android:id="@+id/action_cerealFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
+        <action
+            android:id="@+id/action_cerealFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
+        <action
+            android:id="@+id/action_cerealFragment_to_dairyFragment"
+            app:destination="@id/dairyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dairyFragment"
+        android:name="com.rgbstudios.breakfastapp.DairyFragment"
+        android:label="@string/fragment_dairy"
+        tools:layout="@layout/fragment_dairy" >
+        <action
+            android:id="@+id/action_dairyFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
+        <action
+            android:id="@+id/action_dairyFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
+        <action
+            android:id="@+id/action_dairyFragment_to_dessertsFragment"
+            app:destination="@id/dessertsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/smoothieFragment"
+        android:name="com.rgbstudios.breakfastapp.SmoothieFragment"
+        android:label="@string/fragment_smoothie_shakes"
+        tools:layout="@layout/fragment_smoothie" >
+        <action
+            android:id="@+id/action_smoothieFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
+        <action
+            android:id="@+id/action_smoothieFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/biscuitFragment"
+        android:name="com.rgbstudios.breakfastapp.BiscuitFragment"
+        android:label="@string/fragment_biscuit"
+        tools:layout="@layout/fragment_biscuit" >
+        <action
+            android:id="@+id/action_biscuitFragment_to_dairyFragment"
+            app:destination="@id/dairyFragment" />
+        <action
+            android:id="@+id/action_biscuitFragment_to_foodChoiceFragment"
+            app:destination="@id/foodChoiceFragment" />
+        <action
+            android:id="@+id/action_biscuitFragment_to_pickupFragment"
+            app:destination="@id/pickupFragment" />
     </fragment>
 </navigation>

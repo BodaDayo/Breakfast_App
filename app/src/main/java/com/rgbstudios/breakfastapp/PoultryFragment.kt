@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rgbstudios.breakfastapp.adapter.PoultryAdapter
+import com.rgbstudios.breakfastapp.data.FoodStore
 import com.rgbstudios.breakfastapp.data.FoodStore.poultryOptions
 import com.rgbstudios.breakfastapp.databinding.FragmentPoultryBinding
 import com.rgbstudios.breakfastapp.model.CartItem
@@ -49,6 +50,7 @@ class PoultryFragment : Fragment() {
             poultryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             nextButton.setOnClickListener { goToNextScreen(adapter) }
             cancelButton.setOnClickListener { cancelOrder() }
+            buttonSpecial.setOnClickListener { checkOutSpecialOrder() }
         }
     }
 
@@ -88,5 +90,10 @@ class PoultryFragment : Fragment() {
     private fun cancelOrder(){
         sharedViewModel.resetOrder()
         findNavController().navigate(R.id.action_poultryFragment_to_foodChoiceFragment)
+    }
+    private fun checkOutSpecialOrder(){
+        val order = sharedViewModel.prepareSpecialOrder(FoodStore.specialFoodOption)
+        sharedViewModel.setSpecialOrder(order)
+        findNavController().navigate(R.id.action_poultryFragment_to_pickupFragment)
     }
 }

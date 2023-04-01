@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DairyFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.rgbstudios.breakfastapp.model.OrderViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16sp">
+
+        <LinearLayout
+            android:id="@+id/subtitle_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Subtitle TextView -->
+            <TextView
+                android:id="@+id/subtitle_textview"
+                style="@style/Subtitle1"
+                android:padding="8sp"
+                android:text="@string/dairy_prompt" />
+
+            <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/menu_option_special"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8sp"
+                android:layout_gravity="center"
+                android:clickable="true"
+                card_view:cardCornerRadius="8sp"
+                card_view:cardElevation="4sp">
+
+                <androidx.constraintlayout.utils.widget.ImageFilterButton
+                    android:id="@+id/button_special"
+                    android:layout_width="48sp"
+                    android:layout_height="48sp"
+                    android:background="?colorSurface"
+                    android:tint="?colorPrimary"
+                    app:srcCompat="@drawable/ic_baseline_lunch_dining_24" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dairy_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subtitle_layout" />
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/dairy_cost_textview"
+                style="@style/fragment_subtotal"
+                android:text="@{@string/dairy_cart_price(viewModel.dairyCost)}"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Milk: $0.00" />
+
+            <TextView
+                android:id="@+id/subtotal_textview"
+                style="@style/subtotal"
+                android:text="@{@string/subtotal_price(viewModel.subTotalCost)}"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Subtotal: $0.00" />
+
+            <!-- Buttons -->
+            <LinearLayout
+                android:id="@+id/buttons_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <Button
+                    android:id="@+id/cancel_button"
+                    style="@style/cancelButton"
+                    android:layout_marginEnd="8sp"
+                    android:text="@string/cancel" />
+
+                <Button
+                    android:id="@+id/next_button"
+                    style="@style/proceedButton"
+                    android:text="@string/next_button" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,105 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SummaryFragment">
 
-    <ScrollView
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.rgbstudios.breakfastapp.model.OrderViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="16sp">
+
+        <!-- Subtitle TextView -->
+        <TextView
+            android:id="@+id/subtitle_textview"
+            style="@style/Subtitle1"
+            android:text="@string/order_summary"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/summary_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/order_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subtitle_textview" />
 
         <LinearLayout
+            android:id="@+id/order_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/edge_margin"
             android:orientation="vertical"
-            android:padding="@dimen/margin_between_elements">
+            app:layout_constraintBottom_toTopOf="@id/total_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <!-- Group the order details into a single ViewGroup and set focusable = true,
-                 so all fields will be read aloud together by the accessibility service -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="true"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/quantity_label"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0sp"
                     android:layout_height="wrap_content"
-                    android:text="@string/quantity"
-                    android:textAllCaps="true"
-                    android:textStyle="normal" />
+                    android:layout_weight="1"
+                    android:text="@string/order" />
 
                 <TextView
-                    android:id="@+id/quantity"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0sp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/order_summary_margin"
-                    tools:text="6 cupcakes" />
-
-                <View
-                    android:id="@+id/divider1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="@dimen/margin_between_elements"
-                    android:layout_marginBottom="@dimen/margin_between_elements" />
-
-                <TextView
-                    android:id="@+id/flavor_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/flavor" />
-
-                <TextView
-                    android:id="@+id/flavor"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/order_summary_margin"
-                    tools:text="Chocolate" />
-
-                <View
-                    android:id="@+id/divider2"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="@dimen/margin_between_elements"
-                    android:layout_marginBottom="@dimen/margin_between_elements" />
-
-                <TextView
-                    android:id="@+id/pickup_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pickup_date" />
-
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/order_summary_margin"
-                    tools:text="Sunday" />
-
-                <View
-                    android:id="@+id/divider3"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="@dimen/margin_between_elements"
-                    android:layout_marginBottom="@dimen/margin_between_elements" />
-
-                <TextView
-                    android:id="@+id/total"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/margin_between_elements"
-                    tools:text="Total $5.00" />
+                    android:layout_weight="1"
+                    android:text="@{@string/option_price(viewModel.subTotalCost)}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="$0.00" />
 
             </LinearLayout>
 
-            <Button
-                android:id="@+id/send_button"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/margin_between_elements"
-                android:text="@string/send" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/delivery" />
+
+                <TextView
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@{@string/option_price(viewModel.deliveryPrice)}"
+                    android:textAlignment="viewEnd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:text="$0.00" />
+
+            </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/total_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/edge_margin"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/delivery_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/total"
+                android:textColor="?colorOnSecondaryContainer"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/total_textview"
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{@string/option_price(viewModel.totalCost)}"
+                android:textAlignment="viewEnd"
+                android:textColor="?colorOnSecondaryContainer"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:text="$0.00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/delivery_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/edge_margin"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/phone_number_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4sp"
+                android:text="@string/address"
+                android:textColor="?colorOnSecondaryContainer"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/address_text"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:paddingBottom="4sp"
+                    android:text="@{viewModel.fullAddress + &quot;, &quot; + viewModel.areaOption + &quot;, &quot; + viewModel.localGA}"
+                    android:textSize="12sp"
+                    tools:text="15B 5th Ave, Mayfair, Ile Ife,  Go all the way Osun STate, Nigeria." />
+
+                <TextView
+                    android:id="@+id/change_Address"
+                    android:layout_width="0sp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end|center_vertical"
+                    android:text="@string/change_address"
+                    android:textColor="?colorPrimary" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/phone_number_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingVertical="4sp"
+            android:text="@{@string/option_price(viewModel.phoneNumber)}"
+            android:textColor="?colorOnSecondaryContainer"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/place_order_button"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="0801234567" />
+
+
+        <!-- Place Order Button -->
+        <Button
+            android:id="@+id/place_order_button"
+            style="@style/proceedButton"
+            android:text="@string/place_order"
+            app:layout_constraintBottom_toTopOf="@id/cancel_order_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/cancel_order_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8sp"
+            android:text="@string/cancel"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

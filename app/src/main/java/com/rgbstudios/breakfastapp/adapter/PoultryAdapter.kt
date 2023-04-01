@@ -17,13 +17,13 @@ class PoultryAdapter(val options: List<FoodOption>, sharedViewModel: OrderViewMo
 
     class ViewHolder(val binding: FoodOptionBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PoultryAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
             FoodOptionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return PoultryAdapter.ViewHolder(binding)
+        return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PoultryAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val option = options[position]
         holder.binding.apply {
             optionImage.setImageResource(option.image)

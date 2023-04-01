@@ -1,64 +1,46 @@
 <resources>
     <string name="app_name">Breakfast App</string>
     <string name="greeting">Ready for Breakfast?</string>
-    <string name="get_a_meal">Get a Meal</string>
 
     <string name="cancel">Cancel</string>
-    <string name="next">Next</string>
     <string name="subtotal_price">Subtotal: %s</string>
     <string name="bakery_cart_price">Bakery: %s</string>
     <string name="poultry_cart_price">Eggs: %s</string>
     <string name="brewery_cart_price">Drinks: %s</string>
     <string name="desserts_cart_price">Sweets: %s</string>
+    <string name="cereal_cart_price">Cereal: %s</string>
+    <string name="dairy_cart_price">Cereal: %s</string>
+    <string name="smoothie_cart_price">Jar: %s</string>
+    <string name="biscuit_cart_price">Cookies: %s</string>
+
+    <string name="menu_prompt">Choose preferred meal</string>
+    <string name="Bakery_prompt">Select your bread</string>
+    <string name="poultry_prompt">Pick your eggs</string>
+    <string name="brewery_prompt">Fancy a drink?</string>
+    <string name="desserts_prompt">Some sweets to go?</string>
+    <string name="location_prompt">Choose your Location</string>
+    <string name="cereal_prompt">Pick your cereal</string>
+    <string name="dairy_prompt">Some milk with it?</string>
+    <string name="smoothie_prompt">A healthy choice!</string>
+    <string name="biscuit_prompt">Your favorite cookies!</string>
+
 
     <string name="option_price">%s</string>
 
-
-
-    <string name="choose_pickup_date">Choose Pickup Date</string>
     <string name="order_summary">Order Summary</string>
-    <string name="send">Send Order to Another App</string>
-    <string name="quantity">Quantity</string>
-    <string name="flavor">Flavor</string>
-    <string name="pickup_date">Pickup date</string>
 
+    <string name="new_breakfast_order">New BreakFast Order</string>
 
-
-
-    <string name="total_price">Total %s</string>
-    <string name="new_cupcake_order">New Cupcake Order</string>
-    <string name="order_details">Quantity: %1$s cupcakes \n Flavor: %2$s \nPickup date: %3$s \n
-        Total: %4$s \n\n Thank you!</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="Welcome_copy">Enjoy a fast and smooth breakfast delivery from a vendor near you!</string>
     <string name="decrement_button_description">Decrease quantity by one</string>
     <string name="increment_button_description">Increase quantity by one</string>
-    <string name="Bakery_prompt">Select your bread</string>
-    <string name="Poultry_prompt">Pick you eggs</string>
 
-    <string name="white_bread_option">Sourdough Bread</string>
+
+    <string name="sample_text">Sourdough Bread</string>
     <string name="next_button">Proceed</string>
-    <string name="menu">Choose preferred meal</string>
-    <string name="menu_cereals">Cereals</string>
-    <string name="menu_toasts_and_spreads">Toasts and spreads</string>
-    <string name="menu_pastries">Pastries</string>
-    <string name="pastries_desc">Pastries</string>
-    <string name="menu_eggs_and_breakfast_meats">Eggs and breakfast meats</string>
-    <string name="eggs_and_breakfast_meats_desc">Eggs and breakfast meats</string>
-    <string name="toasts_and_spreads_desc">Toasts and spreads</string>
-    <string name="cereals_desc">Cereals</string>
-    <string name="menu_fruits_and_yogurt">Fruits and yogurt</string>
-    <string name="fruits_and_yogurt_desc">Fruits and yogurt</string>
-    <string name="menu_savory_dishes">Savory dishes</string>
-    <string name="savory_dishes_desc">Savory dishes</string>
-    <string name="menu_bakery_items">Bakery items</string>
-    <string name="bakery_items_desc">Bakery items</string>
-    <string name="poultry_prompt">Pick your eggs and breakfast meats</string>
-    <string name="scrambled_eggs_options">Scrambled eggs</string>
-    <string name="fried_eggs_option">Fried eggs</string>
-    <string name="choose_preferred_quantity">Choose preferred quantity</string>
+
+
     <string name="fragment_bakery">Bakery</string>
     <string name="fragment_food_choice">Menu</string>
     <string name="fragment_desserts">Desserts</string>
@@ -66,6 +48,39 @@
     <string name="fragment_pickup">Delivery Location</string>
     <string name="fragment_brewery">Beverages</string>
     <string name="fragment_poultry">Dairy Section</string>
-    <string name="brewery_prompt">What drink do you want to have with you breakfast</string>
-    <string name="desserts_prompt">Some sweets to go?</string>
+    <string name="fragment_cereal">Cereals</string>
+    <string name="fragment_dairy">Cereals</string>
+    <string name="fragment_smoothie_shakes">Smoothies &amp; Shakes</string>
+    <string name="fragment_biscuit">Cookies</string>
+
+    <string name="send_email">Send Order!</string>
+    <string name="order_summary_request">Can I have these please:</string>
+    <string name="order_summary_address_text">Delivered to this address:</string>
+    <string name="order_summary_phone_number">My phone number:</string>
+    <string name="order_summary_thank_you">Thank you!</string>
+
+    <string name="info_on_delivery_discount"> Delivery on OAU Campus is Free!</string>
+    <string name="local_gov_hint">LGA</string>
+    <string name="area_hint">Area</string>
+    <string name="delivery_address_hint">Delivery Address</string>
+    <string name="phone_number_hint">Phone Number</string>
+    <string name="place_order">Place Order</string>
+    <string name="change_address">Change</string>
+    <string name="address">Address</string>
+    <string name="total">Total</string>
+    <string name="delivery">Delivery</string>
+    <string name="order">Order</string>
+    <string name="item_joiner_in_summary">x</string>
+
+    <string name="cereals_desc">Crunchy Cereals</string>
+    <string name="bakery_bites">Bakery bites</string>
+    <string name="biscuit_banquet">Biscuit Banquet</string>
+    <string name="juicy_smoothies_amp_shakes"><![CDATA[Juicy Smoothies & Shakes]]></string>
+    <string name="chef_s_special_sunrise_surprise">Chef\'s Special Sunrise Surprise</string>
+    <string name="omelette_obsessions">Omelette Obsessions</string>
+
+
+    <string name="developer_signature">© 2023 Oladayo.rgb</string>
+
+
 </resources>

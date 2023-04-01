@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".PickupFragment">
+
     <data>
 
         <variable
@@ -17,59 +18,64 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/edge_margin">
+            android:padding="16sp">
 
             <TextView
                 android:id="@+id/subtitle_textview"
                 style="@style/Subtitle1"
-                android:text="Choose your Location"
+                android:text="@string/location_prompt"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+
             <TextView
                 android:id="@+id/body_textview"
-                android:text="Delivery on OAU Campus is Free!"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/subtitle_textview"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"/>
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/poppins"
+                android:text="@string/info_on_delivery_discount"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtitle_textview" />
+
 
             <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/location_menu"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/body_textview"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/margin_between_elements"
-            android:hint="LGA">
-
-            <AutoCompleteTextView
-                android:id="@+id/location_options_menu"
+                android:id="@+id/location_menu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="none"
-                />
+                android:layout_marginTop="@dimen/margin_between_elements"
+                android:hint="@string/local_gov_hint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/body_textview">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <AutoCompleteTextView
+                    android:id="@+id/location_options_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/area_menu"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/location_menu"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="@dimen/margin_between_elements"
-                android:hint="Area">
+                android:hint="@string/area_hint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/location_menu">
 
                 <AutoCompleteTextView
                     android:id="@+id/area_options_menu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
-                    />
+                    tools:ignore="LabelFor" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -79,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_between_elements"
-                android:hint="House Address"
+                android:hint="@string/delivery_address_hint"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/area_menu">
 
@@ -87,31 +93,33 @@
                     android:id="@+id/address_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPostalAddress"/>
+                    android:inputType="textPostalAddress" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/phone_input_layout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Phone Number"
+                android:layout_marginTop="@dimen/margin_between_elements"
+                android:hint="@string/phone_number_hint"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/address_input_layout"
-                android:layout_marginTop="@dimen/margin_between_elements">
+                app:layout_constraintTop_toBottomOf="@id/address_input_layout">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/phone_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="phone"/>
+                    android:inputType="phone" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <View
                 android:id="@+id/divider"
                 style="@style/Widget.breakfastApp.Divider"
                 android:layout_width="0dp"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:layout_marginTop="16sp"
                 android:layout_marginBottom="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -122,10 +130,11 @@
                 android:id="@+id/subtotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_medium"
-                android:textSize="18sp"
-                android:text="@{@string/subtotal_price(viewModel.subTotalCost)}"
+                android:textColor="?colorOnSurface"
                 android:layout_marginTop="@dimen/margin_between_elements"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@{@string/subtotal_price(viewModel.subTotalCost)}"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/divider"
                 tools:text="Subtotal $5.00" />
@@ -136,28 +145,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/subtotal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtotal">
 
                 <Button
                     android:id="@+id/cancel_button"
                     style="@style/cancelButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginEnd="8sp"
-                    android:layout_weight="1"
                     android:text="@string/cancel" />
 
                 <Button
                     android:id="@+id/next_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/next_button"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    style="@style/proceedButton"
+                    android:text="@string/next_button" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

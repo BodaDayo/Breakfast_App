@@ -9,6 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rgbstudios.breakfastapp.adapter.BakeryAdapter
+import com.rgbstudios.breakfastapp.data.FoodStore
 import com.rgbstudios.breakfastapp.data.FoodStore.bakeryOptions
 import com.rgbstudios.breakfastapp.databinding.FragmentBakeryBinding
 import com.rgbstudios.breakfastapp.model.CartItem
@@ -50,6 +51,7 @@ class BakeryFragment : Fragment() {
             bakeryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             nextButton.setOnClickListener { goToNextScreen(adapter) }
             cancelButton.setOnClickListener { cancelOrder() }
+            buttonSpecial.setOnClickListener { checkOutSpecialOrder() }
         }
     }
 
@@ -90,4 +92,10 @@ class BakeryFragment : Fragment() {
         sharedViewModel.resetOrder()
         findNavController().navigate(R.id.action_bakeryFragment_to_foodChoiceFragment)
     }
+    private fun checkOutSpecialOrder(){
+        val order = sharedViewModel.prepareSpecialOrder(FoodStore.specialFoodOption)
+        sharedViewModel.setSpecialOrder(order)
+        findNavController().navigate(R.id.action_bakeryFragment_to_pickupFragment)
+    }
+
 }

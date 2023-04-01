@@ -15,7 +15,7 @@ import com.rgbstudios.breakfastapp.model.CartItem
 import com.rgbstudios.breakfastapp.model.OrderViewModel
 
 /**
- * [BreweryFragment] allows a user to choose a Coffee type for the order.
+ * [BreweryFragment] allows a user to choose a Beverage type for the order.
  */
 class BreweryFragment : Fragment() {
 
@@ -49,6 +49,7 @@ class BreweryFragment : Fragment() {
             breweryRecyclerView.layoutManager = LinearLayoutManager(requireContext())
             nextButton.setOnClickListener { goToNextScreen(adapter) }
             cancelButton.setOnClickListener { cancelOrder() }
+            buttonSpecial.setOnClickListener { checkOutSpecialOrder() }
         }
     }
 
@@ -88,5 +89,10 @@ class BreweryFragment : Fragment() {
     private fun cancelOrder(){
         sharedViewModel.resetOrder()
         findNavController().navigate(R.id.action_breweryFragment_to_foodChoiceFragment)
+    }
+    private fun checkOutSpecialOrder(){
+        val order = sharedViewModel.prepareSpecialOrder(FoodStore.specialFoodOption)
+        sharedViewModel.setSpecialOrder(order)
+        findNavController().navigate(R.id.action_breweryFragment_to_pickupFragment)
     }
 }

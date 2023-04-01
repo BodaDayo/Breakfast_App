@@ -16,93 +16,92 @@
         android:layout_height="match_parent"
         android:padding="16sp">
 
-    <!-- Subtitle TextView -->
-    <TextView
-        android:id="@+id/subtitle_textview"
-        style="@style/Subtitle1"
-        android:text="@string/desserts_prompt"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- Subtitle TextView -->
+        <TextView
+            android:id="@+id/subtitle_textview"
+            style="@style/Subtitle1"
+            android:padding="8sp"
+            android:text="@string/desserts_prompt"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/desserts_recycler_view"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bottom_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/subtitle_textview" />
-
-    <LinearLayout
-        android:id="@+id/bottom_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-    <TextView
-        android:id="@+id/desserts_cost_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/poppins"
-        android:text="@{@string/desserts_cart_price(viewModel.dessertsCost)}"
-        android:textColor="@color/pink_500"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Sweets: $0.00" />
-
-    <TextView
-        android:id="@+id/subtotal_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="@{@string/subtotal_price(viewModel.subTotalCost)}"
-        android:textColor="@color/gray_700"
-        android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Subtotal: $0.00" />
-
-        <!-- Buttons -->
-        <LinearLayout
-            android:id="@+id/buttons_layout"
-            android:layout_width="match_parent"
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/menu_option_special"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginHorizontal="8sp"
+            android:clickable="true"
+            card_view:cardCornerRadius="8sp"
+            card_view:cardElevation="4sp"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="@id/subtitle_textview">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterButton
+                android:id="@+id/button_special"
+                android:layout_width="48sp"
+                android:layout_height="48sp"
+                android:background="?colorSurface"
+                android:tint="?colorPrimary"
+                app:srcCompat="@drawable/ic_baseline_lunch_dining_24" />
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- RecyclerView -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/desserts_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottom_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subtitle_textview" />
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-            <Button
-                android:id="@+id/cancel_button"
-                style="@style/cancelButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8sp"
-                android:layout_weight="1"
-                android:text="@string/cancel" />
+            <TextView
+                android:id="@+id/desserts_cost_textview"
+                style="@style/fragment_subtotal"
+                android:text="@{@string/desserts_cart_price(viewModel.dessertsCost)}"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Sweets: $0.00" />
 
-            <Button
-                android:id="@+id/next_button"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/subtotal_textview"
+                style="@style/subtotal"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@{@string/subtotal_price(viewModel.subTotalCost)}"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Subtotal: $0.00" />
+
+            <!-- Buttons -->
+            <LinearLayout
+                android:id="@+id/buttons_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/next_button"
+                android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <Button
+                    android:id="@+id/cancel_button"
+                    style="@style/cancelButton"
+                    android:layout_marginEnd="8sp"
+                    android:text="@string/cancel" />
+
+                <Button
+                    android:id="@+id/next_button"
+                    style="@style/proceedButton"
+                    android:text="@string/next_button" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </layout>
