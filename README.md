@@ -18,8 +18,8 @@ You can download the app from the Google Play Store or install it manually by fo
 1. Install the app by opening the APK file.
 
 ## Feedback and Contributions
-We welcome your feedback and contributions to make the Breakfast App even better! If you encounter any issues, have suggestions, or would like to report a bug, please open an [issue](/issues).
-Feel free to contribute to the development by submitting a [pull request](/pulls).
+We welcome your feedback and contributions to make the Breakfast App even better! If you encounter any issues, have suggestions, or would like to report a bug, please open an [issue](https://github.com/cooncudee/Breakfast_App/issues).
+Feel free to contribute to the development by submitting a [pull request](https://github.com/cooncudee/Breakfast_App/pulls).
 
 ![Cover 2](https://github.com/cooncudee/Breakfast_App/raw/master/assets/board2.png)
 
