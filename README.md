@@ -10,8 +10,6 @@ This App is a simple food order app where users can select a combination of food
 - Variety of breakfast options
 - Chefs special that generate a random combination
 
-![Cover 2](https://github.com/cooncudee/Breakfast_App/raw/master/assets/board2.png)
-
 ## Installation
 You can download the app from the Google Play Store or install it manually by following these steps:
 
@@ -22,6 +20,8 @@ You can download the app from the Google Play Store or install it manually by fo
 ## Feedback and Contributions
 We welcome your feedback and contributions to make the Breakfast App even better! If you encounter any issues, have suggestions, or would like to report a bug, please open an [issue](/issues).
 Feel free to contribute to the development by submitting a [pull request](/pulls).
+
+![Cover 2](https://github.com/cooncudee/Breakfast_App/raw/master/assets/board2.png)
 
 License
 This project is licensed under the MIT License - see the [LICENSE](/LICENSE.md) file for details.
