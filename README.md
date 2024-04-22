@@ -4,13 +4,13 @@ Welcome to the Breakfast App repository!
 
 This App is a simple food order app where users can select a combination of food options for breakfast.
 
-![Cover 1 ](https://github.com/cooncudee/Breakfast_App/raw/master/assests/board1.png)
+![Cover 1 ](https://github.com/cooncudee/Breakfast_App/raw/master/assets/board1.png)
 
 ## Features
 - Variety of breakfast options
 - Chefs special that generate a random combination
 
-![Cover 2](https://github.com/cooncudee/Breakfast_App/raw/master/assests/board2.png)
+![Cover 2](https://github.com/cooncudee/Breakfast_App/raw/master/assets/board2.png)
 
 ## Installation
 You can download the app from the Google Play Store or install it manually by following these steps:
