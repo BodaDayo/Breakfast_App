@@ -24,7 +24,7 @@ Feel free to contribute to the development by submitting a [pull request](https:
 ![Cover 2](https://github.com/cooncudee/Breakfast_App/raw/master/assets/board2.png)
 
 License
-This project is licensed under the MIT License - see the [LICENSE](/LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](/LICENSE) file for details.
 
 ## Acknowledgments
 Shout out to the open-source community for the incredible resources and support, JetBrains from the free resources, and everyone that's contributed to the development of the Breakfast App. :+1: :+1:
